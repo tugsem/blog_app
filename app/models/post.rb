@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :likes
   belongs_to :user, foreign_key: 'user_id', counter_cache: true, optional: true
 
-  after_save :update_post_counter
+  after_save :update_counter
 
   def update_counter
     user.increment!(:postsCounter)
