@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
-  belongs_to :user, foreign_key: 'user_id', optional: true
-  belongs_to :post, foreign_key: 'post_id', counter_cache: true, optional: true
+  belongs_to :user, optional: true
+  belongs_to :post, counter_cache: true, optional: true
 
   after_save :update_counter
 
