@@ -1,7 +1,10 @@
 <p style="color: green"><%= notice %></p>
-
+<h1>More information for a given user</h1>
 <%= render @user %>
-
+<p>
+    <strong>Bio:</strong>
+    <%= @user.bio %>
+</p>
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Back to users", users_path %>

@@ -1,17 +1,14 @@
 <div id="<%= dom_id user %>">
+
+  <img src="<% user.picture %>" alt="user picture"/>
   <p>
     <strong>Name:</strong>
     <%= user.name %>
   </p>
-
   <p>
-    <strong>Picture:</strong>
-    <%= user.picture %>
+  <strong>Number of Posts:</strong>
+  <%= user.postsCounter %>
   </p>
 
-  <p>
-    <strong>Bio:</strong>
-    <%= user.bio %>
-  </p>
 
 </div>

@@ -1,12 +1,10 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
+<h1>Here is a list of users</h1>
 <div id="users">
   <% @users.each do |user| %>
     <%= render user %>
     <p>
-      <%= link_to "Show this user", user %>
+      <%= link_to "go to the user", user %>
     </p>
   <% end %>
 </div>
