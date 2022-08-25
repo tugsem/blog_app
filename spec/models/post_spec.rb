@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { Post.new(title: 'hello', text: 'This is my first post') }
-
-  before { subject.save }
+  subject { Post.new(title: 'hello', text: 'This is my first post', user_id: 98) }
 
   it 'title should be present' do
     subject.title = nil
@@ -11,13 +9,10 @@ RSpec.describe Post, type: :model do
   end
 
   it 'commentsCounter must be integer greater than or equal zero' do
-    subject.commentsCounter = 0
-    subject.likesCounter = 0
     expect(subject).to be_valid
   end
 
   it 'likesCounter must be integer greater than or equal zero' do
-    subject.commentsCounter = 0
     subject.likesCounter = -2
     expect(subject).to_not be_valid
   end
