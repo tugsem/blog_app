@@ -1,14 +1,14 @@
-<div id="<%= dom_id user %>">
-
-  <img src="<% user.picture %>" alt="user picture"/>
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
+<div id="<%= dom_id user %>" class="row p-3 ms-5">
+  <div class="col-sm-2 card">
+    <img src="<% user.picture %>" alt="user picture"/>
+  </div>
+  <div class="col-sm-8 card">
+   <p>
+    <strong class="card-title"><%= user.name %></strong>
   </p>
   <p>
-  <strong>Number of Posts:</strong>
+  <strong class="card-text">Number of Posts:</strong>
   <%= user.posts_count %>
   </p>
-
-
+  </div>
 </div>

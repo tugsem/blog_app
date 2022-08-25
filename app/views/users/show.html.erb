@@ -1,6 +1,13 @@
-<p style="color: green"><%= notice %></p>
-<h1>More information for a given user</h1>
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
+ <%= render @user %>
+ <div>
+  <p class="card col-sm-10 ms-5 p-3">
+    <strong>Bio:</strong>
+    <%= @user.bio %>
+  </p>
+<div class="ms-5">
+  <% @user.posts.order(:created_at).limit(3).each do |post|%>
+    <%= render post %>
+ <% end %>
+ </div>
+  <%= link_to "Show more", user_posts_url(@user.id), class:"btn btn-info ms-5 mt-2" %>
 </div>
