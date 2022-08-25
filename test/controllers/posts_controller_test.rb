@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
+class PostsControllerTest < ActionController::TestCase
   setup do
     @post = posts(:one)
   end
