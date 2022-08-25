@@ -1,7 +1,6 @@
-<p style="color: green"><%= notice %></p>
-<h1>All posts for a given user</h1>
-<div class='row'>
-  <%= @posts.each do |post|%>
-  <%= render @user.post %>
+<%= render @user %>
+<div class="ms-5 col-sm-10">
+  <% @user.posts.order(:id).each do |post|%>
+  <%= render post %>
   <% end %>
 </div>

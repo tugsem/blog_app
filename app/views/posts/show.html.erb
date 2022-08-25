@@ -1,1 +1,16 @@
-<h1>Here's a detailed look for a given post</h1>
+<div class="ms-5 col-sm-10 mt-3">
+<div class="card p-3">
+  <h4>
+  Post#<%= @post.id%> by <%= @post.user.name%>
+  </h4>
+  <span>Comments: <%= @post.comments_count%>, Likes:  <%= @post.likes_count%></span>
+  <p class="card-text">
+  <%= @post.text %>
+  </P>
+  </div>
+  <div class="card">
+  <% @post.comments.each do |comment|%>
+    <%= render comment%>
+  <% end%>
+  </div>
+</div>
