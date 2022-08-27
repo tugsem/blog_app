@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   # GET /posts or /posts.json
   def index
     @user = User.find(params[:user_id])
@@ -25,10 +24,10 @@ class PostsController < ApplicationController
     @post = @user.posts.new(post_params)
 
     respond_to do |format|
-        if @post.save
-          format.html { redirect_to user_posts_path(@user), notice: 'Post was successfully created.' }
-        else
-          format.html { render :new, status: :unprocessable_entity }
+      if @post.save
+        format.html { redirect_to user_posts_path(@user), notice: 'Post was successfully created.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -38,5 +37,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :text)
   end
-
 end
