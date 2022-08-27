@@ -9,8 +9,8 @@
   </P>
   </div>
   <div class="card">
-  <% @post.comments.each do |comment|%>
-    <%= render comment%>
+  <% @post.comments.order(created_at: :desc).each do |comment|%>
+    <%= comment.text %>
   <% end%>
   </div>
 </div>

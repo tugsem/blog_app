@@ -5,7 +5,7 @@
     <%= @user.bio %>
   </p>
 <div class="ms-5">
-  <% @user.posts.order(:created_at).limit(3).each do |post|%>
+  <% @user.return_recent_posts.each do |post|%>
     <%= render post %>
  <% end %>
  </div>

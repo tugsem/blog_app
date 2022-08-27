@@ -3,7 +3,7 @@
 <h1>Comments</h1>
 
 <div id="comments">
-  <% @comments.each do |comment| %>
+  <% @user.post.comments.order(created_at: :desc).each do |comment| %>
     <%= render comment %>
     <p>
       <%= link_to "Show this comment", comment %>
