@@ -6,10 +6,17 @@
   <p class="card-text">
     <%= post.text... %>
   </p>
+  <%= form_with model: @like, url: user_post_likes_path(@user, post) do |f| %>
+    <%= f.submit "Like", class: "btn" %>
+  <% end %>
+    <%= link_to "Add a comment", new_user_post_comment_path(post_id: post, user_id: @user), class: "btn"%>
   <span>Comments: <%= post.comments_count%>, Likes:  <%= post.likes_count%></span>
 </div>
 <div class="comments card mt-0">
-  <% post.comments.order(:created_at).limit(5).each do |comment|%>
-    <%= render comment %>
+  <% post.comments.order(created_at: :desc).limit(5).each do |comment|%>
+  <p>
+    <strong>Username:</strong>
+    <%= comment.text%>
+  </p>
   <% end %>
 </div>

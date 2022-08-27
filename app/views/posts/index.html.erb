@@ -1,6 +1,7 @@
 <%= render @user %>
+  <%= link_to "Create new post",  new_user_post_path(@user), class:"btn btn-info ms-5" %>
 <div class="ms-5 col-sm-10">
-  <% @user.posts.order(:id).each do |post|%>
+  <% @user.posts.order(created_at: :desc).limit(5).each do |post|%>
   <%= render post %>
   <% end %>
 </div>
