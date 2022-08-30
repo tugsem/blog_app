@@ -1,16 +1,17 @@
 <div class="ms-5 col-sm-10 mt-3">
-<div class="card p-3">
-  <h4>
-  Post#<%= @post.id%> by <%= @post.user.name%>
-  </h4>
-  <span>Comments: <%= @post.comments_count%>, Likes:  <%= @post.likes_count%></span>
-  <p class="card-text">
-  <%= @post.text %>
-  </P>
+  <div class="card p-3">
+    <h2>
+    Post#<%= @post.id%> by <%= @post.user.name%>
+    </h2>
+    <span>Comments: <%= @post.comments_count%>, Likes:  <%= @post.likes_count%></span>
+    <p class="card-text">
+    <%= @post.text %>
+    </P>
   </div>
   <div class="card">
-  <% @post.comments.order(created_at: :desc).each do |comment|%>
-    <%= comment.text %>
-  <% end%>
+    <h3>Comments</h3>
+    <% @post.recent_comments.each do |comment|%>
+      <%= render partial: "comment" %>
+    <% end%>
   </div>
 </div>

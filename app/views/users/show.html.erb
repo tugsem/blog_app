@@ -4,10 +4,14 @@
     <strong>Bio:</strong>
     <%= @user.bio %>
   </p>
-<div class="ms-5">
+ <div class="row my-2 ms-5">
+  <%= link_to "Create new post",  new_user_post_path(@user), class:"col-sm-2 btn btn-info" %>
+  <%= link_to "Show more", user_posts_url(@user.id), class:"col-sm-2 btn btn-info ms-3" %>
+  </div>
+<div class="m-5">
+<h4> Recent posts</h4>
   <% @user.return_recent_posts.each do |post|%>
     <%= render post %>
  <% end %>
  </div>
-  <%= link_to "Show more", user_posts_url(@user.id), class:"btn btn-info ms-5 mt-2" %>
 </div>

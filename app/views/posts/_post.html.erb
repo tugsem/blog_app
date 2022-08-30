@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>" class="card mt-3 p-3">
   <p class="card-title">
-    <strong >Post:#<%= post.id %></strong>
+    <strong ><%= post.user.name %>:</strong>
     <%= post.title %>
   </p>
   <p class="card-text">
@@ -12,11 +12,4 @@
     <%= link_to "Add a comment", new_user_post_comment_path(post_id: post, user_id: @user), class: "btn"%>
   <span>Comments: <%= post.comments_count%>, Likes:  <%= post.likes_count%></span>
 </div>
-<div class="comments card mt-0">
-  <% post.comments.order(created_at: :desc).limit(5).each do |comment|%>
-  <p>
-    <strong>Username:</strong>
-    <%= comment.text%>
-  </p>
-  <% end %>
-</div>
+

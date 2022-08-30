@@ -8,11 +8,14 @@ class Post < ApplicationRecord
 
   after_save :update_counter
 
-  def update_counter
-    user.increment!(:posts_count)
+
+  def recent_comments
+   Comment.order(created_at: :desc).limit(5)
   end
 
-  def recent_comments(post)
-    post.comments.order(created_at: :desc).limit(5)
+  private
+
+  def update_counter
+    user.increment!(:posts_count)
   end
 end
