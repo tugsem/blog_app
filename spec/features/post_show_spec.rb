@@ -8,38 +8,32 @@ RSpec.describe 'Post/show', type: :system do
                         bio: 'math teacher')
     @post = Post.create(title: 'new post', text: 'Lorem ipsum dolor sit amet.', user: @user)
     @comment = Comment.create(text: 'This is a comment.', user: @user, post: @post)
+    visit user_posts_path(@user, @post)
   end
 
   it 'should shows a post\'s title' do
-    visit user_posts_path(@user, @post)
     expect(page).to have_content(@post.title)
   end
 
   it ' should shows the author of the post' do
-    visit user_posts_path(@user, @post)
     expect(page).to have_content(@user.name)
   end
 
   it 'should shows the body of the post' do
-    visit user_posts_path(@user, @post)
     expect(page).to have_content(@post.text)
   end
 
   it ' should describe the user name of each comment' do
-    visit user_posts_path(@user, @post)
     expect(page).to have_content(@comment.user.name)
   end
 
   it ' shows the comment each comment author left' do
-    visit user_posts_path(@user, @post)
     expect(page).to have_content(@comment.text)
   end
   it 'shows the comments count' do
-    visit user_posts_path(@user, @post)
     expect(page).to have_content('Comments: 2')
   end
   it 'shows the likes count' do
-    visit user_posts_path(@user, @post)
     expect(page).to have_content('Likes: 0')
   end
 end
