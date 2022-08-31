@@ -1,7 +1,10 @@
 <%= render @user %>
   <%= link_to "Create new post",  new_user_post_path(@user), class:"btn btn-info ms-5" %>
 <div class="ms-5 col-sm-10">
-  <% @user.posts.order(created_at: :desc).limit(5).each do |post|%>
-  <%= render post %>
+  <% @user.posts.order(created_at: :desc).each do |post|%>
+  <%= link_to user_post_path(@user.id, post.id) do %>
+    <%= render post %>
+    <% end %>
   <% end %>
+  <%= link_to 'Pagination', user_posts_path(@user), class: 'pagination-button' %>
 </div>

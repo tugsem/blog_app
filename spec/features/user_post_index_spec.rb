@@ -47,4 +47,14 @@ RSpec.describe 'user/posts', type: :system do
     visit user_posts_path(@user)
     expect(page).to have_content("Likes: #{@post.likes_count}")
   end
+  it 'has pagination' do
+    visit user_posts_path(@user)
+    click_on('Pagination')
+    expect(page).to have_current_path(user_posts_path(@user))
+  end
+  it 'redirects to user/post/show page' do
+    visit user_posts_path(@user)
+    find(:xpath, "//a[@href='#{user_post_path(@user.id, @post.id)}']").click
+    expect(page).to have_current_path(user_post_path(@user.id, @post.id))
+  end
 end
