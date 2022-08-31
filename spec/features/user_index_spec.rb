@@ -20,4 +20,9 @@ RSpec.describe 'user/index', type: :system do
     visit users_path
     expect(page).to have_content("Number of Posts: #{@user.posts_count}")
   end
+  it 'redirects to user/show page' do
+    visit users_path
+    find(:xpath, "//a[@href='#{user_path(@user)}']").click
+    expect(page).to have_current_path(user_path(@user))
+  end
 end
