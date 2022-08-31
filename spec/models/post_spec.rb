@@ -13,7 +13,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'likesCounter must be integer greater than or equal zero' do
-    subject.likesCounter = -2
+    subject.likes_count = -2
     expect(subject).to_not be_valid
   end
 
