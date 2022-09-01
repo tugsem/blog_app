@@ -6,6 +6,8 @@ gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.1'
 gem 'ffi'
 gem 'jquery-rails'
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
