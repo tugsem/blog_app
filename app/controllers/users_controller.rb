@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   # GET /users or /users.json
   def index
     @users = User.all
@@ -21,7 +20,6 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-    @user.skip_confirmation!
 
     respond_to do |format|
       if @user.save
