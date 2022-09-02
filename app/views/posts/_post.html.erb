@@ -10,13 +10,15 @@
     <%= f.submit "Like", class: "btn" %>
   <% end %>
     <%= link_to "Add a comment", new_user_post_comment_path(post_id: post, user_id: @user), class: "btn"%>
+    <%= link_to "Delete post", user_posts_path(@user) if can? :destroy, Post, class:"btn"%>
   <span>Comments: <%= post.comments_count%>, Likes:  <%= post.likes_count%></span>
 </div>
 <div class="comments card mt-0">
   <% post.comments.order(created_at: :desc).limit(5).each do |comment|%>
   <p>
-    <strong>Username:</strong>
+    <strong><%= comment.user.name%>:</strong>
     <%= comment.text%>
+    <%= link_to "Delete this comment", user_posts_path(@user) if can? :destroy, Comment, class:"btn"%>
   </p>
   <% end %>
 </div>

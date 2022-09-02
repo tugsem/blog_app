@@ -10,7 +10,9 @@
   </div>
   <div class="card">
   <% @post.comments.order(created_at: :desc).each do |comment|%>
+    <p><%= comment.user.name %></p>
     <%= comment.text %>
+    <%= link_to "Delete this comment", user_post_path(comment.user.id) if can? :destroy, Comment, class:"btn btn-info"%>
   <% end%>
   </div>
 </div>
