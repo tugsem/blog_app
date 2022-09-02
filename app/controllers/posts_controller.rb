@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /posts or /posts.json
   def index
     @user = User.first
@@ -7,7 +9,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @post = Post.find(params[:id])
+    @post = Post.first
   end
 
   # GET /posts/new
@@ -20,6 +22,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
+    @user = User.first
     @post = @user.posts.new(post_params)
 
     respond_to do |format|
