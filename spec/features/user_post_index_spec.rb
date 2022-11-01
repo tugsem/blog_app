@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'user/posts', type: :system do
+RSpec.describe 'user/posts', type: :feature do
   before(:each) do
     @user = User.create(name: 'John',
                         picture: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
@@ -46,7 +46,7 @@ RSpec.describe 'user/posts', type: :system do
     expect(page).to have_current_path(user_posts_path(@user))
   end
   it 'redirects to user/post/show page' do
-    find(:xpath, "//a[@href='#{user_post_path(@user.id, @post.id)}']").click
+    first(:link, 'See post').click
     expect(page).to have_current_path(user_post_path(@user.id, @post.id))
   end
 end
