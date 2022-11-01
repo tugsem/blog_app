@@ -6,10 +6,12 @@ gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.1'
 gem 'bullet', '~> 7.0', '>= 7.0.3'
+gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'ffi'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
+
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4'
