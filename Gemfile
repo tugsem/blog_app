@@ -2,22 +2,22 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
+gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.1'
+gem 'bullet', '~> 7.0', '>= 7.0.3'
 gem 'ffi'
+gem 'importmap-rails'
+gem 'jbuilder'
 gem 'jquery-rails'
-gem 'rails', '~> 7.0.4'
-gem 'sprockets-rails'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
-gem 'importmap-rails'
-gem 'turbo-rails'
+gem 'rails', '~> 7.0.4'
 gem 'sassc', '~> 2.4.0'
+gem 'sprockets-rails'
 gem 'stimulus-rails'
-gem 'jbuilder'
-gem 'bullet', '~> 7.0', '>= 7.0.3'
+gem 'turbo-rails'
 gem 'tzinfo-data'
-gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'capybara'

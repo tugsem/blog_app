@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   before(:each) do
-    @user = User.create(name: "first user", picture: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png", bio: "Lorem ipsum dolor sit amet.")
+    @user = User.create(name: 'first user',
+                        picture: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
+                        bio: 'Lorem ipsum dolor sit amet.')
     @post = Post.create(title: 'new post', text: 'Lorem ipsum dolor sit amet.', user: @user)
   end
   describe 'GET /index' do
