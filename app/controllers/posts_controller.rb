@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
-    @user = User.find(params[:user_id])
+    @user = User.first
     @posts = @user.posts.includes(:comments)
   end
 
@@ -20,7 +20,6 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @user = current_user
     @post = @user.posts.new(post_params)
 
     respond_to do |format|
