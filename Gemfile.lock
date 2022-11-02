@@ -277,7 +277,7 @@ DEPENDENCIES
   bootstrap (~> 5.0)
   bootstrap_form (~> 5.1)
   capybara
-  devise (~> 4.8, >= 4.8.1)
+  devise
   ffi
   importmap-rails
   jbuilder
