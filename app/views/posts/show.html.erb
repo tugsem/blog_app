@@ -17,10 +17,10 @@
         <%= comment.text %>
       </p>
       <% if can? :destroy , comment %>
-        <%= link_to 'delete this comment', user_post_comment_path(@post, comment.user.id), method: :destroy, class: 'btn btn-secondary'%>
+        <%= button_to 'delete this comment', user_post_comment_path(comment.user, comment.post, comment.id), method: :delete, class: 'btn btn-secondary'%>
       <% end %>
     <% end%>
     <% if can? :destroy , @post %>
-      <%= link_to 'delete this post', user_post_path(@post.user.id, @post), method: :destroy, class: 'btn btn-secondary mt-2'%>
+      <%= button_to 'delete this post', user_post_path(@post.user.id, @post), method: :delete, class: 'btn btn-secondary mt-2'%>
     <% end %>
 </div>
