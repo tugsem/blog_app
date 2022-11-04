@@ -1,5 +1,7 @@
   <h1 class="ms-5 p-3">List of users:</h1>
+  <% if can? :create, Post %>
   <%= link_to "Create new post",  new_user_post_path(current_user), class:"btn btn-info ms-5" %>
+  <% end %>
   <% @users.each do |user| %>
     <%= link_to user_path(user.id) do %>
       <%= render user %>
