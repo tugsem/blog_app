@@ -7,7 +7,32 @@
 <div class="ms-5">
   <% @user.return_recent_posts.each do |post|%>
     <%= link_to user_post_path(@user.id, post.id) do %>
-      <%= render post %>
+      <div id="<%= dom_id post %>" class="card mt-3 p-3">
+  <p class="card-title">
+    <strong >
+    Post#<%= post.id %>:
+    <%= post.title.capitalize %>
+    </strong>
+  </p>
+  <p class="card-text">
+    <%= post.text... %>
+  </p>
+  <%= form_with model: @like, url: user_post_likes_path(@user, post) do |f| %>
+    <%= f.submit "Like", class: "btn" %>
+  <% end %>
+    <%= link_to "Add a comment", new_user_post_comment_path(post_id: post, user_id: @user), class: "btn"%>
+  <span>Comments: <%= post.comments_count%>, Likes:  <%= post.likes_count%></span>
+</div>
+<div class="comments card mt-0">
+  <% post.comments.order(created_at: :desc).limit(5).each do |comment|%>
+  <p>
+    <strong><%= comment.user.name%>:</strong>
+   </p>
+   <p>
+   <%= comment.text %>
+  </p>
+  <% end %>
+</div>
     <%  end %>
  <% end %>
  </div>
