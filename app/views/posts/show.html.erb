@@ -1,16 +1,26 @@
 <div class="ms-5 col-sm-10 mt-3">
-<div class="card p-3">
-  <h4>
-  Post#<%= @post.id%> by <%= @post.user.name%>
-  </h4>
-  <span>Comments: <%= @post.comments_count%>, Likes:  <%= @post.likes_count%></span>
-  <p class="card-text">
-  <%= @post.text %>
-  </P>
+  <div class="card p-3">
+    <h4>
+    Post#<%= @post.id%> by <%= @post.user.name%>
+    </h4>
+    <p class="card-text">
+    <%= @post.text %>
+    </p>
+    <span>Comments: <%= @post.comments_count%>, Likes:  <%= @post.likes_count%></span>
   </div>
   <div class="card">
-  <% @post.comments.order(created_at: :desc).each do |comment|%>
-    <%= comment.text %>
-  <% end%>
-  </div>
+    <% @post.comments.order(created_at: :desc).each do |comment|%>
+      <p>
+        <%= comment.user.name %>
+      </p>
+       <p>
+        <%= comment.text %>
+      </p>
+      <% if can? :destroy , comment %>
+        <%= link_to 'delete this comment', user_post_comment_path(@post, comment.user.id), method: :destroy, class: 'btn btn-secondary'%>
+      <% end %>
+    <% end%>
+    <% if can? :destroy , @post %>
+      <%= link_to 'delete this post', user_post_path(@post.user.id, @post), method: :destroy, class: 'btn btn-secondary mt-2'%>
+    <% end %>
 </div>
