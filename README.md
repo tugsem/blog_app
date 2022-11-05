@@ -58,3 +58,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Microverse
+
+## 📝 License
+
+This project is [MIT](./LICENSE) licensed.

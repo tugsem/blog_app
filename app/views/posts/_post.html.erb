@@ -1,7 +1,9 @@
 <div id="<%= dom_id post %>" class="card mt-3 p-3">
   <p class="card-title">
-    <strong >Post:#<%= post.id %></strong>
-    <%= post.title %>
+    <strong >
+    Post#<%= post.id %>:
+    <%= post.title.capitalize %>
+    </strong>
   </p>
   <p class="card-text">
     <%= post.text... %>
@@ -15,8 +17,10 @@
 <div class="comments card mt-0">
   <% post.comments.order(created_at: :desc).limit(5).each do |comment|%>
   <p>
-    <strong>Username:</strong>
-    <%= comment.text%>
+    <strong><%= comment.user.name%>:</strong>
+   </p>
+   <p>
+   <%= comment.text %>
   </p>
   <% end %>
 </div>

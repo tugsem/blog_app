@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   after_save :update_counter
 
   def update_counter
-    user.increment!(:posts_count)
+    user.increment(:posts_count)
   end
 
   def recent_comments(post)

@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   # GET /posts or /posts.json
   def index
-    @user = User.first
+    @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
   end
 
@@ -20,6 +22,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
+    @user = current_user
     @post = @user.posts.new(post_params)
 
     respond_to do |format|
@@ -28,6 +31,17 @@ class PostsController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    respond_to do |format|
+      format.html { redirect_to user_posts_url(@user), notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
