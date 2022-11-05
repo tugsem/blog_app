@@ -21,6 +21,5 @@ module Api
         params.require(:comment).permit(:text)
       end
     end
-
   end
 end
